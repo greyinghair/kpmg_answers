@@ -58,17 +58,38 @@ else:
 ## Question 4 ##
 print("###Question 4###\n")
 # Ask the user for two different numbers, if both numbers are even, print "Even", if both numbers are odd, print "Odd", else print the product of the two numbers
-
-
+num1=int(input("Please choose your 1st number "))
+num2=int(input("Please choose a 2nd number "))
+if not num1 %2 and not num2 %2: # Output of %2 if EVEN will be 1 which is False so we inverting it 
+    # to make EVEN equal to True to run the 1st group of code
+  print("Even")
+elif num1 % 2 and num2 %2:
+  print("Odd")
+else:
+    print(num1 + num2)
 
 ## Question 5 ##
 print("###Question 5###\n")
-# Your company has had a fantastic year and are now going to offer a bonus of 20% to any employee who has a service of over 7 years, a bonus of 15% to any employee who has a service of over 5 years and a bonus of 10% to any employee who has a service of 3 - 5 years. Ask the user to input their current salary and years of service and print out their salary and their bonus or "No bonus" if they are not receiving one.
+# Your company has had a fantastic year and are now going to offer a bonus of 20% to any employee who has a service of
+# over 7 years, a bonus of 15% to any employee who has a service of over 5 years and a bonus of 10% to any employee who
+# has a service of 3 - 5 years. Ask the user to input their current salary and years of service and print out their
+# salary and their bonus or "No bonus" if they are not receiving one.
+salary = int(input("What is your annual salary? "))
+years_of_service = int(input("How many years have your worked for the company? "))
+if years_of_service > 7:
+    print("Your salary is " + str(salary) + " and your bonus will be " + str((salary / 100) * 20))
+elif years_of_service > 5:
+    print("Your salary is " + str(salary) + " and your bonus will be " + str((salary / 100) * 15))
+elif years_of_service >= 3 and years_of_service <= 5:
+    print("Your salary is " + str(salary) + " and your bonus will be " + str((salary / 100) * 10))
+else:
+    print("Sorry, no bonus for you!")
 
 
 ## Question 6 ##
 print("###Question 6###\n")
 # Take the age and name of three people and determine who is the oldest and youngest and print out the name and age of the oldest and youngest. If all three ages are the same, print that.
+
 
 
 ## Question 7 ##
