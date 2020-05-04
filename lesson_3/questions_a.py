@@ -35,12 +35,11 @@ else:
 print("###Question 4###\n")
 # Ask the user to enter a number, if the number is even, print "Even", otherwise print "Odd"
 
-number = int(input("Please choose a number between 1 & 10\n"))
-if number % 2: # will give 1 if odd and 0 if even.  Python see's 0 = False wherease 1 = True.  Modulas operator.
-  print("Odd")
-else:
+number = int(input("Please choose a number\n"))
+if number % 2 == 0: # will give 1 if odd (i.e a remainder) or 0 if no remainder after division, ie even.  Python see's 0 = False wherease 1 = True.  Modulas operator.
   print("Even")
-
+else:
+  print("Odd")
 
 
 ## Question 5 ##
@@ -57,28 +56,30 @@ else:
 ## Question 6 ##
 print("###Question 6###\n")
 # Ask the user to enter the length and width of a shape and check if it is a square or not.
-x = int(input("What is the length of x-axis of your shape?\n"))
-y = int(input("What is the length of y-axis of your shape?\n"))
-if x == y:
+length = int(input("What is the length of your shape?\n"))
+width = int(input("What is the width of your shape?\n"))
+if length == width:
   print("Your shape IS a Square")
 else:
   print("Your shape is NOT a Square")
 
+
 ## Question 7 ##
 print("###Question 7###\n")
 # Your company has had a great year and are going to offer a bonus of 10% to any employee who has a service of over 3 years. Ask the user to input their current salary and years of service and print out their salary and their bonus or "No bonus" if they are not receiving one.
-
 salary = int(input("What is your annual salary?\n"))
 years = int(input("How many years of service do you have?\n"))
 if years > 3:
-  print("Your salary is £" + (str(salary)) + " and your bonus will be £" + (str(salary / 10)))
+  print("Your salary is £" + str(salary) + " and your bonus will be £" + str(salary / 10))
+else:
+  print("Your salary is £" + str(salary) + ".  No bonus for you!")
 
 
 ## Question 8 ##
 print("###Question 8###\n")
-# Take a whole number input, if it's positive, print out the number cubed, if it is a negative, print out half its value.
+# Take a whole number input, if it's positive, print out the number cubed (exponent to the power of 3), if it is a negative, print out half its value.
 num=int(input("Choose a number either negative or positive\n"))
 if num >= 0:
-  print(num * num)
+  print(num ** 3)
 else:
   print(num / 2)

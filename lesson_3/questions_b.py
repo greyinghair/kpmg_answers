@@ -60,10 +60,9 @@ print("###Question 4###\n")
 # Ask the user for two different numbers, if both numbers are even, print "Even", if both numbers are odd, print "Odd", else print the product of the two numbers
 num1=int(input("Please choose your 1st number "))
 num2=int(input("Please choose a 2nd number "))
-if not num1 %2 and not num2 %2: # Output of %2 if EVEN will be 1 which is False so we inverting it 
-    # to make EVEN equal to True to run the 1st group of code
+if num1 % 2 == 0 and num2 % 2 == 0: # Output of %2 if EVEN will be 0 (true), to signify no remainder.
   print("Even")
-elif num1 % 2 and num2 %2:
+elif num1 % 2 == 1 and num2 % 2 == 1:
   print("Odd")
 else:
     print(num1 + num2)
@@ -77,11 +76,11 @@ print("###Question 5###\n")
 salary = int(input("What is your annual salary? "))
 years_of_service = int(input("How many years have your worked for the company? "))
 if years_of_service > 7:
-    print("Your salary is " + str(salary) + " and your bonus will be " + str((salary / 100) * 20))
+    print("Your salary is " + str(salary) + " and your bonus will be " + str((salary / 100) * 20)) # or you could * 0.2 instead to be more efficient
 elif years_of_service > 5:
-    print("Your salary is " + str(salary) + " and your bonus will be " + str((salary / 100) * 15))
+    print("Your salary is " + str(salary) + " and your bonus will be " + str((salary / 100) * 15)) # or you could * 0.15 instead to be more efficient
 elif years_of_service >= 3 and years_of_service <= 5:
-    print("Your salary is " + str(salary) + " and your bonus will be " + str((salary / 100) * 10))
+    print("Your salary is " + str(salary) + " and your bonus will be " + str((salary / 100) * 10)) # or you could * 0.1 instead to be more efficient
 else:
     print("Sorry, no bonus for you!")
 
@@ -111,6 +110,28 @@ elif age3 > age2 and age2 > age1:
     print(name3 + " at " + str(age3) + " is the oldest, whilst " + name1 + " at " + str(age1) + " is the youngest")
 
 
+# Or another way for same result, but neater. 
+# Split the function of findout oldest vs youngest
+# 2 x IF's needed or else on 1st match would stop processing any other ELIF's
+
+# Oldest
+if age1 > age2 and age1 > age3:
+  print(name1 + " at " + str(age1) + " is the oldest.")
+elif age2 > age1 and age2 > age3:
+  print(name2 + " at " + str(age2) + " is the oldest.")
+elif age3 > age1 and age3 > age2:
+  print(name3 + " at " + str(age3) + " is the oldest.")
+else:
+  print(name1 + ", " + name2 + ", and " + name3 + " are all the same age")
+
+# Youngest
+if age1 < age2 and age1 < age3:
+  print(name1 + " at " + str(age1) + " is the youngest.")
+elif age2 < age1 and age2 < age3:
+  print(name2 + " at " + str(age2) + " is the youngest.")
+elif age3 < age1 and age3 < age2:
+  print(name3 + " at " + str(age3) + " is the youngest.")
+
 ## Question 7 ##
 print("###Question 8###\n")
 # A school has following rules for their grading system:
@@ -127,6 +148,8 @@ lessonname2 = input("What is Lesson #2 ")
 lessonmark2 = input("What mark did you get (0-100) for " + lessonname2 + "? ")
 lessonname3 = input("What is Lesson #3? ")
 lessonmark3 = input("What mark did you get (0-100) for " + lessonname3 + "? ")
+
+# Lesson-1
 if int(lessonmark1) < 25:
     print("For " + lessonname1 + " your grade was - F" )
 elif int(lessonmark1) < 46:
@@ -140,6 +163,7 @@ elif int(lessonmark1) < 81:
 elif int(lessonmark1) > 80:
     print("For " + lessonname1 + " your grade was - A" )
 
+# Lesson-2
 if int(lessonmark2) < 25:
     print("For " + lessonname2 + " your grade was - F")
 elif int(lessonmark2) < 46:
@@ -153,6 +177,7 @@ elif int(lessonmark2) < 81:
 elif int(lessonmark2) > 80:
     print("For " + lessonname2 + " your grade was - A")
 
+# Lesson-3
 if int(lessonmark3) < 25:
     print("For " + lessonname3 + " your grade was - F")
 elif int(lessonmark3) < 46:
