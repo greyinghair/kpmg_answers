@@ -115,7 +115,7 @@ for xy in names_q9:
 dr.sort() # Sort alphabetically
 print(dr) # Print dr post sort
 
-  # or via user input incouding how many names to enter which will define how many times to loop
+  # or via user input including how many names to enter which will define how many times to loop
 name_q9_b = []
 howmany = int(input("How many names to enter?...")) # cast user input to integer
 for tempnames in range(howmany):
@@ -123,7 +123,9 @@ for tempnames in range(howmany):
 print(name_q9_b)
 
 
-# 10. FizzBuzz – Write a program that prints the numbers from 1 to 100. For multiples of three, print "Fizz" instead of the number and for multiples of five, print "Buzz". For numbers which are multiples of both three and five, print "FizzBuzz"
+# 10. FizzBuzz – Write a program that prints the numbers from 1 to 100. For multiples of three, print "Fizz" instead
+# of the number and for multiples of five, print "Buzz".
+# For numbers which are multiples of both three and five, print "FizzBuzz"
 print("\n\n## Question 10 ##\n\n")
 
 for xyz in range(1, 101):
