@@ -1,7 +1,7 @@
 ## Lists are strings captured in [] separated by commas
 # e.g.
 names = ["Alice", "Bob", "Charlie"]
-# Print using indexing which represents each item starting at zero
+# Print using indexing which represents each element starting at zero
 print(names[0]) # Alice
 print(names[1]) # Bob
 print(names[2]) # Charlie
@@ -16,20 +16,20 @@ names.append("Dave")
 print(names) # ['Alice, 'Bob', 'Charlie', 'Dave']
 
 
-## To REPLACE exsting item, define variable with the index position to replace
+## To REPLACE existing element, define the list with the index position to replace
 # along with the new value.
 # e.g. to replace Charlie (which is index position 2) with Chris:
 names[2] = "Chris"
 print(names) # ['Alice', 'Bob', 'Chris', 'Dave']
 
 
-## To DELETE an item in a list, define variable with DEL and the index position 
+## To DELETE an element in a list, define variable with DEL and the index position 
 # e.g. to delete 'Bob' (which is index position 1 (2nd from the left)):
 del(names[1])
 print(names) # ['Alice', 'Chris', 'Dave']
 
 
-## To check presence of an item in a list use IN within the statement
+## To check presence of an element within a list use IN within the statement
 # e.g. to see if "Eve" is in the list
 names = ["Alice", "Bob", "Charlie"]
 if "Eve" in names:

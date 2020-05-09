@@ -17,11 +17,17 @@ print(fruit)
 del(fruit[0])
 print(fruit)
 
+
 # 5. Print out the current length of the list
 print(len(fruit))
 
+  # or calculate and store in an intermediate varibale for reuse
+number_of_fruit = len(fruit)
+print(number_of_fruit)
+
 # 6. Order the list alphabetically
 fruit.sort()
+
 
 # 7. Print out the list again
 print(fruit)
