@@ -46,3 +46,17 @@ for my_number in range(50,60):
 # example, loop start = 2000.  loop end = 2100.  increment = 5
 for my_number in range(2000,2100,5):
   print(my_number)
+
+
+## Loops with Uperrcase/lowercase statements
+# All vowels in lowercase
+vowels = ["a", "e", "i", "o", "u"]
+
+# Make the word lowercase and then loop through each letter
+for letter in "supeRcaliFragiListiCexPiaLidOcIous".lower():
+  # Check to see if the lowercase letter matches a vowel and if so print and change to UPPERCASE
+  if letter in vowels:
+    print(letter.upper())
+  # If letter is NOT in list (vowel), then print letter as lowercase
+  else:
+    print(letter.lower())
