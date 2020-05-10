@@ -115,7 +115,7 @@ for xy in names_q9:
 dr.sort() # Sort alphabetically
 print(dr) # Print dr post sort
 
-  # or via user input incouding how many names to enter which will define how many times to loop
+  # or via user input including how many names to enter which will define how many times to loop
 name_q9_b = []
 howmany = int(input("How many names to enter?...")) # cast user input to integer
 for tempnames in range(howmany):
