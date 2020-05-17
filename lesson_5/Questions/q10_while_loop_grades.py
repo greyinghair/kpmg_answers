@@ -31,8 +31,6 @@ while loopcount != 3: # stop looping after loopcount =3
     elif int(lessonmark[loopcount - 1]) >= 81:
         lessongrade.append("A")
 
-loopcount2 = 0 # new count used for 2nd loop to pull out the info from lists to display
-
 while loopcount2 != loopcount: # run loop until loopcount2 is equal to value of loopcount, (which should be 3)
     loopcount2 += 1 # increment loopcount2 by 1
     print("For " + lessonname[loopcount2-1] + " your grade = " + lessongrade[loopcount2-1]) # Count -1 for index pos

@@ -12,6 +12,8 @@ computer_win = 0 # number of times computer wins
 
 while user_win < 2 and computer_win < 2:
     user_guess = input("Rock, Paper or Scissors? :").lower() # take input from user guess and make lower case
+    if user_guess not in rps : # Sanity check if user input is not in the rps list
+        print("Invalid move")
     computer_guess = random.choice(rps) # random choice from "rps" list
     print("\nComputer: " + (computer_guess))
 
@@ -25,7 +27,7 @@ while user_win < 2 and computer_win < 2:
             user_guess == "paper" and computer_guess == "scissors":
         computer_win += 1
         print("\nPoint goes to computer\n")
-    else:
+    elif user_guess == computer_guess:
         print("\nDraw\n")
 
 
