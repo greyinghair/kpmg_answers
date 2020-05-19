@@ -10,11 +10,25 @@
 # The player to complete the beetle in the fewest rolls of the dice wins.
 # i. Create the beetle game.
 
-random 1,6
+import random
+rand = random.randint(1,6)
+players = int(input("How many players? (1-3) "))
+win = [{
+    "body": True,
+    "legs": 6,
+    "head": True,
+    "antenna": 2,
+    "eyes": 2,
+    "mouth": True
+}]
 
-how many players
-while loop
-    if dice == 6:
-        print("Draw body")
-        player(#).append([{"throw(x)": )}])
-    while someone not won
+results = []
+
+print(win)
+
+# how many players
+# while loop
+#     if dice == 6:
+#         print("Draw body")
+#         player(#).append([{"throw(x)": )}]
+#     while someone not won
