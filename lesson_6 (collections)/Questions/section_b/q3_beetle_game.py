@@ -11,7 +11,8 @@
 # i. Create the beetle game.
 
 import random
-    #   players = int(input("How many players? (1-3) ")) # Set
+players = int(input("How many players? (1-3) ")) # Set
+playernumber = 0 # Incremented after each players go to identify player #
 
 # Match the below to win
 win = {
@@ -23,66 +24,79 @@ win = {
     "mouth": True
 }
 
-# Starting off with nothing
-results = {
-    "body": False,
-    "legs": 0,
-    "head": False,
-    "antenna": 0,
-    "eyes": 0,
-    "mouth": False
-}
+overall = []
 
-while results != win:
-    print(results)
-    roll = random.randint(1, 6)  # Generate random number between 1 & 6
-    print("You rolled a " + str(roll))
-    if roll == 6 and not results.get("body"): # If you roll 6 and body NOT set to True, ie no body
-        print("You can draw a body")
-        results["body"] = True # Change body boolean to True
-    elif roll == 6 and results.get("body"): # If you already have a body (True) and roll 6
-        print("You already have a body")
-    elif roll == 5 and not results.get("head"): # If body is True ie you already have a body and you roll a 5
-        print("You can draw a head")
-        results["head"] = True # Change head boolean to True
-    elif roll == 5 and results.get("head"): # If you roll 5 and already have a head
-        print("You already have a head")
-    elif roll == 4 and results.get("body") and not results.get("legs") == 6: # If you roll 4 and already have a body
-        print("You can draw a leg")
-        results["legs"] += 1
-    elif roll == 4 and results.get("body"): # 4, and body but already have 6 legs
-        print("You already have 6 legs")
-    elif roll == 4: # 4, no body
-        print("You need a body before legs")
-    elif roll == 3 and results.get("head") and not results.get("antenna") == 2:  #If roll 3, have head and not 2 ant
-        print("You can draw an antenna")
-        results["antenna"] += 1
-    elif roll == 3 and results.get("head"):  # roll 3, and body but antenna is 2
-        print("You already have 2 antenna")
-    elif roll == 3:  # 3, no head
-        print("You need a head before antenna")
-    elif roll == 2 and results.get("head") and not results.get("eyes") == 2:  # If roll 2, have head and not 2 eyes
-        print("You can draw an eye")
-        results["eyes"] += 1
-    elif roll == 2 and results.get("head"):  # roll 2, and body but already have 2 eyes
-        print("You already have 2 eyes")
-    elif roll == 2:  # 2, no head
-        print("You need a head before eyes")
-    elif roll == 1 and results.get("head") and not results.get("mouth"): # If roll 1, have head but no mouth
-        print("You can draw a mouth")
-        results["mouth"] = True # Change mouth value to true
-    elif roll == 1 and results.get("head"):  # roll 2, and body but already have 2 eyes
-        print("You already have a mouth")
-    elif roll == 1:  # 2, no head
-        print("You need a head before a mouth")
-    print(input("Press enter when ready for next roll"))
+for x in range(players): # Loop for number of players that there are
 
-print(win)
-print(results)
+    loopcount = 0  # Incremented after each roll within sub loop
+    # Starting off with nothing (has to go inside loop of value don't reset for each player)
+    results = {
+        "body": False,
+        "legs": 0,
+        "head": False,
+        "antenna": 0,
+        "eyes": 0,
+        "mouth": False
+    }
 
-# how many players
-# while loop
-#     if dice == 6:
-#         print("Draw body")
-#         player(#).append([{"throw(x)": )}]
-#     while someone not won
+    while results != win: # within each loop, loop again until get same results as for a win
+        print("\nPlayer number: " + str(x + 1))  # Print player number (index +1)
+        loopcount +=1 # Increment loopcount once per loop
+        # print("Roll number: " + str(loopcount)) # uncomment line for troubleshooting
+        roll = random.randint(1, 6)  # Generate random number between 1 & 6
+        print("\nYou rolled a " + str(roll))
+        if roll == 6 and not results.get("body"): # If you roll 6 and body NOT set to True, ie no body
+            print("You can draw a body")
+            results["body"] = True # Change body boolean to True
+        elif roll == 6 and results.get("body"): # If you already have a body (True) and roll 6
+            print("You already have a body")
+        elif roll == 5 and not results.get("head"): # If body is True ie you already have a body and you roll a 5
+            print("You can draw a head")
+            results["head"] = True # Change head boolean to True
+        elif roll == 5 and results.get("head"): # If you roll 5 and already have a head
+            print("You already have a head")
+        elif roll == 4 and results.get("body") and not results.get("legs") == 6: # If you roll 4 and already have a body
+            print("You can draw a leg")
+            results["legs"] += 1
+        elif roll == 4 and results.get("body"): # 4, and body but already have 6 legs
+            print("You already have 6 legs")
+        elif roll == 4: # 4, no body
+            print("You need a body before legs")
+        elif roll == 3 and results.get("head") and not results.get("antenna") == 2:  #If roll 3, have head and not 2 ant
+            print("You can draw an antenna")
+            results["antenna"] += 1
+        elif roll == 3 and results.get("head"):  # roll 3, and body but antenna is 2
+            print("You already have 2 antenna")
+        elif roll == 3:  # 3, no head
+            print("You need a head before antenna")
+        elif roll == 2 and results.get("head") and not results.get("eyes") == 2:  # If roll 2, have head and not 2 eyes
+            print("You can draw an eye")
+            results["eyes"] += 1
+        elif roll == 2 and results.get("head"):  # roll 2, and body but already have 2 eyes
+            print("You already have 2 eyes")
+        elif roll == 2:  # 2, no head
+            print("You need a head before eyes")
+        elif roll == 1 and results.get("head") and not results.get("mouth"): # If roll 1, have head but no mouth
+            print("You can draw a mouth")
+            results["mouth"] = True # Change mouth value to true
+        elif roll == 1 and results.get("head"):  # roll 2, and body but already have 2 eyes
+            print("You already have a mouth")
+        elif roll == 1:  # 2, no head
+            print("You need a head before a mouth")
+        print(input("\n\tPress enter when ready for next roll"))
+
+    # increment at end of each players loop. player 1 after 1 loop, player 2 on 2nd loop etc.
+    playernumber += 1
+
+    # Record number of rolls per player, append new dict to list
+    overall.append([{
+        "Player": playernumber,
+        "Score": loopcount
+    }])
+
+    print("Congrats player-" + str(playernumber) + ", you have a full beetle your turn is over\n\n")
+    # End of player number x's go
+
+# print overall results shows player x vs number of rolls of dice and declare the winner
+
+print(overall)
