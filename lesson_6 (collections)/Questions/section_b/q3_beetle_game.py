@@ -29,7 +29,7 @@ overall = []
 for x in range(players): # Loop for number of players that there are
 
     loopcount = 0  # Incremented after each roll within sub loop
-    # Starting off with nothing (has to go inside loop of value don't reset for each player)
+    # Starting off with nothing (has to go inside loop or values don't reset for each player and never makes 2nd loop)
     results = {
         "body": False,
         "legs": 0,
@@ -39,10 +39,11 @@ for x in range(players): # Loop for number of players that there are
         "mouth": False
     }
 
-    while results != win: # within each loop, loop again until get same results as for a win
+    while results != win: # within each loop, loop again until get same results as for a win per player
+
         print("\nPlayer number: " + str(x + 1))  # Print player number (index +1)
         loopcount +=1 # Increment loopcount once per loop
-        # print("Roll number: " + str(loopcount)) # uncomment line for troubleshooting
+        print("Roll number: " + str(loopcount)) # uncomment line for troubleshooting
         roll = random.randint(1, 6)  # Generate random number between 1 & 6
         print("\nYou rolled a " + str(roll))
         if roll == 6 and not results.get("body"): # If you roll 6 and body NOT set to True, ie no body
@@ -83,8 +84,11 @@ for x in range(players): # Loop for number of players that there are
             print("You already have a mouth")
         elif roll == 1:  # 2, no head
             print("You need a head before a mouth")
-        print(input("\n\tPress enter when ready for next roll"))
 
+        print(input("\n\tPress enter when ready for next roll")) #comment out to loop through rolls without pause/input
+        # end of a single roll
+
+    # After player loops through and completes beetle....
     # increment at end of each players loop. player 1 after 1 loop, player 2 on 2nd loop etc.
     playernumber += 1
 
@@ -98,5 +102,11 @@ for x in range(players): # Loop for number of players that there are
     # End of player number x's go
 
 # print overall results shows player x vs number of rolls of dice and declare the winner
+print("Player\tNum of rolls (lowest wins)")
+print("######\t############\n")
+for a in overall: # loop as many times are there were players (i.e. 1 per dictionary)
+    for b in a: # for score in y: # loop through each element in each dictionary
+        print(str(b["Player"]) + "\t\t" + str(b["Score"]))
 
+print("\n")
 print(overall)
