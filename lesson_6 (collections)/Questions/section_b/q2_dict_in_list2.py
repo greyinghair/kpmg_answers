@@ -8,14 +8,17 @@
 menu = [] # define list
 dish_input = None
 count = 0 # set loop count to zero
+yes_or_no = ["y", "n"] # List of acceptable strings for answer to question in loop
 number_of_dishes = int(input("How many dishes? ")) # User to decide how many dishes to enter
 
 while count != number_of_dishes: # loop as many times as defined in number_of_dishes
     dish_input = input("What is the name of the dish? ")
+    veggie = None # define as non within loop
     if dish_input: # if dish is not null value then run below code (input validation)
         count += 1  # Increment count 1 per loop
         price = float(input("How much is the dish? "))
-        veggie = input("Is vegetarian? (y|n)? ")
+        while veggie not in yes_or_no: # has to be "y" or "n" as per variable.
+           veggie = input("Is vegetarian? (y|n)? ")
         if veggie == "y":
             menu.append( [{"dish": dish_input, "cost": price, "is_veg": True}] )
         else:
