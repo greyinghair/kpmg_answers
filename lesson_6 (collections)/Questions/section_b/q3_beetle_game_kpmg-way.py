@@ -12,13 +12,13 @@
 
 import random
 
-parts = {
-    "1": "mouth",
-    "2": "eye",
-    "3": "antennae",
-    "4": "leg",
-    "5": "head",
-    "6": "body"
+parts_list = {
+     "1": "mouth",
+     "2": "eye",
+     "3": "antennae",
+     "4": "legs",
+     "5": "head",
+     "6": "body"
 }
 
 beetles = [] # list so can draw multiple players at same time
@@ -52,29 +52,42 @@ print("start of game....")
 winner = None
 
 while winner is None: # Loop until is a winner
+
     for current_player in range(players): # loop for as many players as there are
         player_roll =  input( "\nPlayer number: " + str(current_player + 1) + ", press enter to roll")
         dice = random.randint(1, 6)  # Generate random number between 1 & 6
-        print(dice)
         loopcount[current_player] +=1 # Add loopcount to index value based on player number to keep score per player
         # in a single list, this is a key part
-        if dice == 6 and not beetles({"6"}): # If you roll 6 and body NOT set to True, ie no body
-            print("You can draw a body")
-            beetles([current_player{"6":}]) -= 1
-            print(beetles[current_player])
+        print("You rolled a " + str(dice) + " (" + parts_list[str(dice)] + ")")
 
-print("The winner is " + str(winner)) # Winner
+        if dice > 0:
+            # Invalid spin statements
+            if dice == 6 and beetles[current_player]["6"] == 0: # If you roll 6 and body 0, ie non needed
+                print("You already have a body")
+            elif dice == 5 and beetles[current_player]["5"] == 0: # if you roll 5 for head and num of heads needed is 0
+                print("You already have a head")
+            elif dice == 4 and beetles[current_player]["6"] == 1: # If num of bodys required still 1
+                print("You can't have legs without a body")
+            elif dice == 3 and beetles[current_player]["5"] == 1: # If num of heads required still 1
+                print("You can't have antennae without a head")
+            elif dice == 2 and beetles[current_player]["5"] == 1:
+                print("You can't have eyes without a head")
+            elif dice == 1 and beetles[current_player]["5"] == 1:
+                print("You can't have a mouth without a head")
+            # Start of valid rolls to remove what is still left to get
+            else:
+                print("You got a " + parts_list[str(dice)]) # Pull from list based on number rolled what the user got
+                if beetles[current_player][str(dice)] > 0: # without this could have negative values for items
+                    beetles[current_player][str(dice)] -= 1 # Remove 1 from number in list for user of what parts remain
+                    #print(beetles[current_player]) # uncomment this line for debugging whats left to collect
+            for list in beetles[current_player]: # loop through dict for current player for remaining parts
+                if beetles[current_player][list]: # If value is True, i.e. NOT 0. i.e. still parts left to get
+                    print("You need " + str(beetles[current_player][list]) + " " + parts_list[str(list)])
 
-print("\nThe overall score were..." + str(loopcount))
+            # Has user won on this spin (got zero parts left to get from beetles list) ?
+            if sum(beetles[current_player].values()) == 0:
+                winner = current_player
 
+print("The winner is player: " + str(winner + 1)) # Winner (correcting index vs player number)
 
-# win = {
-#     "body": True,
-#     "legs": 6,
-#     "head": True,
-#     "antenna": 2,
-#     "eyes": 2,
-#     "mouth": True
-# }
-#
-# overall = []
+print("\nThe overall scores were..." + str(loopcount))
