@@ -32,7 +32,7 @@ while players not in players_allowed: # keep asking for number of players until 
 ## End number of players
 
 for x in range(players): # Loop as many times as there are players
-    # Append to beetles list the number of items still required of ech item on each run through, value as Integer
+    # Append to beetles list the number of items still required of each item on each run through, value as Integer
     # before play starts
     beetles.append({
         "1": 1, # mouth
@@ -51,13 +51,17 @@ for x in range(players): # Loop as many times as there are players
 print("start of game....")
 winner = None
 
-while winner is not None: # Loop until is a winner
+while winner is None: # Loop until is a winner
     for current_player in range(players): # loop for as many players as there are
         player_roll =  input( "\nPlayer number: " + str(current_player + 1) + ", press enter to roll")
         dice = random.randint(1, 6)  # Generate random number between 1 & 6
+        print(dice)
         loopcount[current_player] +=1 # Add loopcount to index value based on player number to keep score per player
         # in a single list, this is a key part
-
+        if dice == 6 and not beetles({"6"}): # If you roll 6 and body NOT set to True, ie no body
+            print("You can draw a body")
+            beetles([current_player{"6":}]) -= 1
+            print(beetles[current_player])
 
 print("The winner is " + str(winner)) # Winner
 
