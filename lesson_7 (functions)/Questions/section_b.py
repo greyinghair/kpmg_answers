@@ -34,17 +34,13 @@ q2(input("What is your word? "))
 # Write a recursive function that accepts a number and prints that number of stars, followed by ever decreasing stars
 # on each line, E.g: **
 
-# def stars(num):
-#     loopcount = 0 # define a variable within function
-#     for s in range(num):
-#         if loopcount < 0:
-#             print("*")
-#         else:
-#             for y in s:
-#                 print("*")
-#                 loopcount += 1
-#
-# stars(3)
+def stars(num):
+    for s in range(num):
+        print("*" * (num))  # print "*" as many times as defined in num (passed from stars)
+        num -= 1 # Remove value and hence number of stars by 1 on each loop
+
+stars(int(input("How many stars?: ")))
+
 
 # Q4
 # Create a padlock function. You need to be able to pass in a passcode and if its correct it should return "Unlock",
