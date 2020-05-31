@@ -115,6 +115,18 @@ is_prime(int(input("What number would you like to know whether is a prime number
 # Write a function that checks to see if a string is a pallindrome, if it is, it will return True and False if it is
 # not.
 
+def q7(word):
+    backwards = "" # Create empty (str) variable
+    for w in word:
+        backwards = w + backwards # order is critical, if backwards + w would be forwards (this KEY line)
+        print(backwards) # print the steps showing is appending backwards to w
+    if backwards == word: # Compare the input both forwards and back, if match then
+        print(word + " = IS a pallindrome")
+    else:
+        print(word + " = NOT a pallindrome")
+
+q7(input("Word to see if pallandrome or not: "))
+
 # Q8
 # Write a function that checks to see if a sentence is a pallindrome, if it is, it will return True and False if it is
 # not. Tip - you may want to format your sentence so it is all lower case, and .replace() to get rid of white spaces.
