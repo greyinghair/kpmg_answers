@@ -61,21 +61,27 @@ padlock(int(input("What is the passcode? ")))
 # Write a function that returns the sum of multiples of 3 and 5 between 0 and limit (parameter). For example,
 # if limit is 20, it should return the sum of 3, 5, 6, 9, 10, 12, 15, 18, 20
 
+
+
 # Q6
 # Write a function called is_prime() that accepts a number and return True or False if the number of prime or not
 
 def is_prime(prime):
     count = 0
-    for p in range(1,(prime)):
-        if prime % p > 1:
+    for p in range(2,(prime)): # loop from 2 through to index 1 less than the number itself, i.e. won't include the
+        # number itself nor 1 but divide by everything else, if any of then can be divided by a whole number then not
+        # a Prime number
+        if prime % p == 0: # If the number is divisible (entirely by the number in range, then:
+            print(str(prime) + " is divisible by " + str(p))
             count += 1
-    if count <= 2:
-        print("PRIME" + " (count: " + str(count))
+    if count == 0:
+        print("\nPRIME" + " (count: " + str(count) + ")")
     else:
-        print("NOT PRIME" + " (count: " + str(count))
+        print("\nNOT PRIME" + " (divisible by " + str(count) + " number(s) other than 1 and itself)")
 
 
 is_prime(int(input("What number would you like to know whether is a prime number or not? ")))
+
 
 # Q7
 # Write a function that checks to see if a string is a pallindrome, if it is, it will return True and False if it is
