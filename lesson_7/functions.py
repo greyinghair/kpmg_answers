@@ -24,7 +24,7 @@ hello_world()
 
 ### START example
 
-def message(name):  # Define the function of hello and pas
+def message(name):  # Define the function of hello and pass to intermediate variable
     print("Hello, " + str( name ) + "!" ) # then to change message to print, change it within the function such as "bye"
 
 message("Alice")  # call the function message and passes "Alice" to variable called name then action of function prints
