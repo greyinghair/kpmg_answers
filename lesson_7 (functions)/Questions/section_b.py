@@ -64,7 +64,18 @@ padlock(int(input("What is the passcode? ")))
 # Q6
 # Write a function called is_prime() that accepts a number and return True or False if the number of prime or not
 
+def is_prime(prime):
+    count = 0
+    for p in range(1,(prime)):
+        if prime % p > 1:
+            count += 1
+    if count <= 2:
+        print("PRIME" + " (count: " + str(count))
+    else:
+        print("NOT PRIME" + " (count: " + str(count))
 
+
+is_prime(int(input("What number would you like to know whether is a prime number or not? ")))
 
 # Q7
 # Write a function that checks to see if a string is a pallindrome, if it is, it will return True and False if it is
