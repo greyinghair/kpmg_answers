@@ -33,6 +33,10 @@ print(names) # ['Jimbo', 'Alice', 'Chris', 'Charlie', 'Dave']
 del(names[1])
 print(names) # ['Jimbo', 'Chris', 'Charlie', 'Dave']
 
+## To Remove/Delete an element based on value:
+steps = [2, 5, 10]
+steps.remove(5)
+print(steps) # [2, 10]
 
 ## To check presence of an element within a list use IN within the statement
 # e.g. to see if "Eve" is in the list

@@ -6,9 +6,12 @@
 
 def is_odd(q1):
     if q1 % 2: # i.e. if 1 / True, ie 1 remaining i.e. Odd
+        print("Odd")
         return True
     else:
+        print("Even")
         return False
+
 
 q1_number = is_odd(int(input("Choose a number to work out if odd/even: ")))
 
@@ -61,7 +64,36 @@ padlock(int(input("What is the passcode? ")))
 # Write a function that returns the sum of multiples of 3 and 5 between 0 and limit (parameter). For example,
 # if limit is 20, it should return the sum of 3, 5, 6, 9, 10, 12, 15, 18, 20
 
+def q5(max):
+    total_step3 = []
+    total_step5 = []
+    grand_total = 0
+    for step3 in range(0, max+1, 3):  # Start at zero, max of input. Step of 3 & 5
+        print(str(step3) + " (step-3)")
+        total_step3.append(str(step3))
+    for step5 in range(0, max+1, 5):
+        print(str(step5) + " (step-5)")
+        total_step5.append(str(step5))
 
+    # Remove duplicates (from Step-5) (such as not having 15 in both vars)
+    print("\n")
+    for duplicate in total_step3: # Loop through total_step3
+        if duplicate in total_step5: # If value from total_step3 matches a value in total_step5
+            print("duplicate is: " + duplicate)
+            total_step5.remove(duplicate) # Remove the duplicate from total_step5
+
+    print(total_step3)
+    print(total_step5)
+
+    # Loop through both lists and + each value to grand_total as an integer
+    for x in total_step3:
+        grand_total += int(x)
+    for y in total_step5:
+        grand_total += int(y)
+
+    print("\nSum of range is: " + str(grand_total)) # Answer should be 98 if max is 20
+
+q5(int(input("Sum of multiples of 3 & 5 between zero and ?: ")))
 
 # Q6
 # Write a function called is_prime() that accepts a number and return True or False if the number of prime or not
