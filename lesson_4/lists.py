@@ -15,18 +15,23 @@ print(names[2]) # Charlie
 names.append("Dave")
 print(names) # ['Alice, 'Bob', 'Charlie', 'Dave']
 
+## To INSERT at specific Index in  list
+#
+# <list>.<insert>[<index#>, <value]
+names.insert(0, "Jimbo")
+print(names) # ['Jimbo', 'Alice', 'Bob', 'Charlie', 'Dave']
 
 ## To REPLACE existing element, define the list with the index position to replace
 # along with the new value.
 # e.g. to replace Charlie (which is index position 2) with Chris:
 names[2] = "Chris"
-print(names) # ['Alice', 'Bob', 'Chris', 'Dave']
+print(names) # ['Jimbo', 'Alice', 'Chris', 'Charlie', 'Dave']
 
 
 ## To DELETE an element in a list, define variable with DEL and the index position 
 # e.g. to delete 'Bob' (which is index position 1 (2nd from the left)):
 del(names[1])
-print(names) # ['Alice', 'Chris', 'Dave']
+print(names) # ['Jimbo', 'Chris', 'Charlie', 'Dave']
 
 
 ## To check presence of an element within a list use IN within the statement
