@@ -6,15 +6,11 @@
 
 def is_odd(q1):
     if q1 % 2: # i.e. if 1 / True, ie 1 remaining i.e. Odd
-        print("Odd")
-        return True
+        return True  # Once hits return it exits out of function
     else:
-        print("Even")
         return False
 
-
-q1_number = is_odd(int(input("Choose a number to work out if odd/even: ")))
-
+print(is_odd(int(input("Choose a number to work out if odd/even: "))))
 
 # Q2
 # Write a function that accepts a word and returns it backwards, e.g. 'hello' -> 'olleh'
@@ -33,9 +29,13 @@ q2("hello")
 # on each line, E.g: **
 
 def stars(num):
+    star = "" # Empty variable expecting string
     for s in range(num):
-        print("*" * (num))  # print "*" as many times as defined in num (passed from stars)
-        num -= 1 # Remove value and hence number of stars by 1 on each loop
+        star += "*" # Add "*" to variable in==on every run
+    print(star) # Print after completion of each loop
+
+    if num > 1:
+        stars( num - 1 ) # Remove 1 per loop (until num is 1 or less)
 
 stars(int(input("How many stars?: ")))
 
@@ -49,8 +49,10 @@ correct_code = 4321
 def padlock(x):
     if x == correct_code:
         print("Unlock")
+        return "Unlock"
     else:
         print("Locked")
+        return "Locked"
 
 padlock(int(input("What is the passcode? ")))
 
@@ -85,9 +87,21 @@ def q5(max):
     for y in total_step5:
         grand_total += int(y)
 
-    print("\nSum of range is: " + str(grand_total)) # Answer should be 98 if max is 20
+    print("\nSum of range is: " + str(grand_total)) # Answer should be 98 if max is 2
 
 q5(int(input("Sum of multiples of 3 & 5 between zero and ?: ")))
+
+# Q5 (simpler way)
+def sums(limit):
+    total = 0
+    for x in range(0, limit +1):
+        if x % 3 == 0:
+            total += x
+        elif x % 5 == 0:
+            total += x
+    print(total)
+sums(int(input("Sum of multiples of 3 & 5, from zero to ?: ")))
+
 
 # Q6
 # Write a function called is_prime() that accepts a number and return True or False if the number of prime or not
@@ -108,6 +122,19 @@ def is_prime(prime):
 
 is_prime(int(input("What number would you like to know whether is a prime number or not? ")))
 
+# Q6 (Less Code, basic response of True/False) but less user intuitive
+
+def is_prime(prime):
+    for p in range(2,(prime)): # loop from 2 through to index 1 less than the number itself, i.e. won't include the
+        # number itself nor 1 but divide by everything else, if any of then can be divided by a whole number then not
+        # a Prime number
+        if prime % p == 0: # If the number is divisible (entirely by the number in range), then:
+            return True
+
+        return False # outside of if loop ie if if loop not true
+
+
+print(is_prime(112))
 
 # Q7
 # Write a function that checks to see if a string is a pallindrome, if it is, it will return True and False if it is
@@ -142,7 +169,27 @@ def q8(sentence):
 
     if backwards == forwards: # Compare the input both forwards and back, if match then
         print("\nSentence IS a pallindrome")
+        return True
     else:
         print("\nSentence NOT a pallindrome")
+        return False
 
 q8(input("Sentence to see if pallandrome or not: "))
+
+# Q8 (easier method to remove whitespace using .replace)
+    # test with     Go hang a salami Im a lasagna hog
+
+def q8_better(sentence):
+    nospaces = sentence.replace(" ", "").lower() # replace " " with no space ie "" and make lowercase
+    print(nospaces)
+    backwards = "" # Create empty (str) variable
+    for w in nospaces:
+        backwards = w + backwards # order is critical, if backwards + w would be forwards
+    if backwards == nospaces: # Compare the input both forwards and back, if match then
+        print("\nSentence IS a pallindrome")
+        return True
+    else:
+        print("\nSentence NOT a pallindrome")
+        return False
+
+q8_better(input("Sentence to see if pallandrome or not: "))
