@@ -128,3 +128,21 @@ q7(input("Word to see if pallandrome or not: "))
 # Q8
 # Write a function that checks to see if a sentence is a pallindrome, if it is, it will return True and False if it is
 # not. Tip - you may want to format your sentence so it is all lower case, and .replace() to get rid of white spaces.
+
+# test sentence:   Go hang a salami, I'm a lasagna hog
+
+def q8(sentence):
+    forwards = "" # Empty str variable to add forward sentence to minus the whitespaces
+    backwards = "" # Create empty (str) variable
+    for w in sentence:
+        if w != " " and w != "," and w != "'" and w!= "!" and w != "?" and w!=  ".": # If NOT whitespace or punctuation
+            forwards += w.lower() # add lower case sentence 1 letter at a time
+            backwards = w.lower() + backwards.lower() # order is critical, if backwards + w would be forwards
+            print(backwards) # print the steps showing is appending backwards to w
+
+    if backwards == forwards: # Compare the input both forwards and back, if match then
+        print("\nSentence IS a pallindrome")
+    else:
+        print("\nSentence NOT a pallindrome")
+
+q8(input("Sentence to see if pallandrome or not: "))
