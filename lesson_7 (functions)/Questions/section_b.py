@@ -19,15 +19,13 @@ q1_number = is_odd(int(input("Choose a number to work out if odd/even: ")))
 # Q2
 # Write a function that accepts a word and returns it backwards, e.g. 'hello' -> 'olleh'
 
-wordbackwords = []
-
 def q2(word):
-    recompiled = None
+    wordbackwords = "" # Required inside function
     for q2_letter in word:
-        wordbackwords.insert(0, q2_letter) # Insert list Method at Index 0
+        wordbackwords = q2_letter + wordbackwords # critical the way round this goes
     print(wordbackwords)
 
-q2(input("What is your word? "))
+q2("hello")
 
 
 # Q3
