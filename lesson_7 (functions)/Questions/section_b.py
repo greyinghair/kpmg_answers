@@ -31,7 +31,7 @@ q2("hello")
 def stars(num):
     star = "" # Empty variable expecting string
     for s in range(num):
-        star += "*" # Add "*" to variable in==on every run
+        star += "*" # Add "*" to variable on every run
     print(star) # Print after completion of each loop
 
     if num > 1:
