@@ -11,10 +11,11 @@
 # Action READ "r" - opens a file for reading, error if the file does not exist
 word = open("z_read.txt","r") # Read, error if file doesn't exist
 
-# Action APPEND "a" - opens file for appending, creates the file it if doesn't exist
+# Action APPEND "a" - opens file for appending, creates the file it if doesn't exist (normally use APPEND)
 word = open("z_append.txt","a") # Append, create file is doesn't exist
 
-# Action WRITE "w" - opens file for writing, create the file if it doesn't exist
+# Action WRITE "w" - opens file for writing, create the file if it doesn't exist (use write if new file or
+# completing overwriting the contents of an existing file
 word = open("z_write.txt","w") # Write, create file if it doesn't exist. Will overwrite existing file.
 
 # Action CREATE "x" - creates the specified file, returns error if file exists
