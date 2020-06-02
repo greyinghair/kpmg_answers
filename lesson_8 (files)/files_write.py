@@ -14,3 +14,11 @@ f.close()
 f = open("./tmp/example.txt","r") # Just need to read ("r"), not right
 print(f.read())
 f.close()
+
+# Loop to ask for name and write to a file.
+names = open("./tmp/names.txt","w") # Overwrite/create new file
+name = True
+while name: # Run whilst name is True.  Only not true when False, ie Zero ie ENTER no data
+    name = input("Name to add to file <blank to end>: ")
+    names.write(name + "\n")
+names.close()
