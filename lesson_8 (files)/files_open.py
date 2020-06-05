@@ -19,5 +19,5 @@ for x in names:
 num_file = open("numbers_file.txt","r")
 total = 0
 for nums in num_file: # Loop through the file
-    total += int(nums) # Add eah element to var outside the loop.  Cast var str to an int.
+    total += int(nums) # Add each element to var outside the loop.  Cast var str to an int.
 print(total)

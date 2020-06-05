@@ -115,7 +115,7 @@ alphabet = {
 
 word = "" # empty variable str so can add each letter to it
 for num in open("secret.txt", "r"):
-    x = int(num)
+    x = int(num) # Convert num value (str) to int and place in new var called x
     word += alphabet[x]
 print(word)
 
@@ -126,8 +126,53 @@ print(word)
 # real data The files 'accounts_1.txt', 'accounts_2.txt' and 'accounts_3.txt' contain financial transaction data.
 # Work out which of the files contains fake data.
 
-    # random generate numbers x 10000 to act as baseline, print to screen % found of each one 1 to 9.
-    # get length of each file (def)
-    # what percentage entries start with a 1 in each file, or 2 or 3 etc.
-    # FYI. most evenly spreadh percentage will be fake file
-    # get script to query each accounts file based on account_ +*
+# Fake data likely close in values of use to those created by randomly generated baseline
+
+import random
+# Generate 1 to 9 x 10000.  Will be integer.
+random_nums = (random.randint(1,9) for x in range(1, 10001))
+
+def percentage(filename, file):
+    count = {} # Empty dictionary
+    lines = 0
+    for x in range(1,10): # cycle through 9 times (index 10)
+        count[str(x)] = 0 # set value of to 0 for keys 1 to 9.
+
+    # Loop through 10000 randomly generated int and count how many of 1-10 there are and add to dict
+    for y in file:
+        if filename == "Random_Baseline":
+            # Add to each dict value of 1-9 each time said number found
+            count[str(y)] += 1
+            # Increment lines to record number of lines for later calc
+            lines += 1
+        elif y:
+            first_character = y[0] # Take first character (index 0) per line only
+            # Add to each dict value of 1-9 each time said number found
+            count[first_character] += 1
+            # Increment lines to record number of lines for later calc
+            lines += 1
+
+    print(count)
+
+    print("Results for: " + str(filename))
+
+    # Loop through count dict and calc percentage of each value of 1-10 based on number of lines in file
+    for z in count:
+        # round(value,2) # rounds value to 2 decimal places
+        rounded=round(((count[z] / lines) * 100),2) # # Calc % and round to 2 decimal places
+        print(z + ": " + str(rounded) + "%")
+
+    # Close file after use
+    file.close()
+
+def accounts():
+    for loop in range(1,4): # Loop 3 times (1 to index 4 for the 3 x accounts files)
+        filename = ("accounts_" + str(loop) + ".txt")
+        file = open(filename, "r")
+        percentage(filename,file) # Pass name of file for printing along with data from file to function "percentage"
+
+
+accounts() # Find 1st num per line and display % of each number used over the whole file(s) for accounts_(1-3).txt
+percentage(str("Random_Baseline"), random_nums) # Same thing as line above but for randomly generated num as a baseline
+
+# accounts_2 more like the randomly generated baseline hence it is likely the fake data.
