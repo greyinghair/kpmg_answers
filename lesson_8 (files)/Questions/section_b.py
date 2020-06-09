@@ -175,4 +175,4 @@ def accounts():
 accounts() # Find 1st num per line and display % of each number used over the whole file(s) for accounts_(1-3).txt
 percentage(str("Random_Baseline"), random_nums) # Same thing as line above but for randomly generated num as a baseline
 
-# accounts_2 more like the randomly generated baseline hence it is likely the fake data.
+# accounts_2 most like the randomly generated baseline hence it is likely the fake data.
