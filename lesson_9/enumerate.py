@@ -7,7 +7,7 @@
 #       for x, y in enumerate(blah) # where x is count and y is data from blah
 
 file = open("names.txt", "r")
-namedict = {}
+
 for count, data in enumerate(file): # count is the numerical count for loop and data is data from parameter ()
         # remove the trailing newline to remove whitespace wich <var>.replace("replace", "with">)
         print("Line " + str(count) + ": " + data.replace("\n", ""))

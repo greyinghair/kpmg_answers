@@ -46,7 +46,7 @@ for dicts in data: # loop through each dict in the list called 'data'
     print(area(**dicts)) # use ** for wildcard dictionary to pass each dict to the function and then print what's
     # returned.  keeps the code scaleable by just adding new dicts to the data list either manually or import from files
 
-# exmaple 4 (of ** with function)
+# example 4 (of ** with function)
 
 def add_contact(**kwargs):
     for key, value in kwargs.items(): # Takes both keys and value and passes to variables. .items() returns
