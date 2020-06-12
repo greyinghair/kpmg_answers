@@ -4,11 +4,29 @@
 
 import csv
 
-def tofile(**kwargs):
-    with open( "files/question7.csv", "a") as file:
-        writer = csv.DictWriter(file, kwargs.keys())
-        writer.writeheader() # use this line to create header which is the keys in each column
-        writer.writerow(kwargs)
+def tofile(writer, **kwargs): # writer variable triggers open of csv file in write mode
+    # and writes headers and user input
+    writer.writerow(kwargs.values()) # only write values, assumes keys are same
 
+fields = ["fname", "lname", "dob"] # to add to top of CSV columns
 
-tofile(fname = "Dan", lname = "Stacey", dob = "040280")
+file = open( "files/question7.csv", "w")
+writer = csv.writer(file)
+
+# Add in field header
+writer.writerow(fields)
+
+# Get user input and loop through fields list as values asking user for keys and store in dict
+name = True
+while name:
+    userinput = {}
+    for x in fields: # loops as many times as are fields
+        userinput[x] = input(x + ": ").lower() # ask user for input for field (loop / index no) and make lowercase
+        if userinput[x] == "": # when empty values, ie enter key hit
+            name = False # change name to false and hence stop input loop
+    #print(userinput) # uncomment start of line for debugging
+
+    # At end of loop call function
+    tofile(writer = writer, **userinput)
+
+file.close() # close file at end of loop
