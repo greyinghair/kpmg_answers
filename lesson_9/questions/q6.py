@@ -3,49 +3,30 @@
 # Return the result of calculating the expression. E.g.: # calculate(1, 2, 3, 4, operand = "multiply")
 # calculate(65, 200, 84, 12, operand = "add")`
 
-def calculate(*args, **kwargs):
+def calculate(*args, operand = "plus"): # set default operand if non is passed
     calc = ""
-    total = 0
+    total = args[0] # set the starting total to the 1st number in list so don;t end up subtracting or multiplying by
+    # zero value
     count = 0
-    for key, value in kwargs.items():
-        if value == "add":
-            calc = "+"
-        elif value == "subtract":
-            calc = "-"
-        elif value == "multiply":
-            calc = "*"
-        elif value == "divide":
-            calc = "/"
+
+    for arg in args[1:]: # use index position 1 then : and blank means 1 to end. Don't want
+        # to reuse value at index 0 as that has already been used in total starting position above
+        if operand in ["add", "+", "plus"]: # list of possible values of keyword
+            total += arg
+        elif operand in ["subtract", "-", "minus"]: # list of possible values of keyword
+            total -= arg
+        elif operand in ["multiply", "*", "x", "times"]: # list of possible values of keyword
+            total *= arg
+        elif operand in ["divide", "/"]: # list of possible values of keyword
+            total /= arg
         else:
             print("You have entered an invalid operand value")
 
-    for nums in args:
-        if calc == "+":
-            total += nums
-        elif calc == "-":
-            if count == 0:
-                total += nums # on first loop add 1st num in list to total so don't end up subtracting from zero
-                count += 1
-            else:
-                total -= nums # on 2nd loop through start subtracting all subsequent numbers
-        elif calc == "*":
-            if count == 0:
-                total += nums # on first loop add 1st num in list to total so don't end up multiplying by zero
-                count += 1
-            else:
-                total *= nums # on 2nd loop through start multiplying all subsequent numbers
-        elif calc == "/":
-            if count == 0:
-                total += nums # on first loop add 1st num in list to total so don't end up dividing by zero
-                count += 1
-            else:
-                total /= nums # on 2nd loop through start dividing all subsequent numbers
-
-    #print(total)
+    print(total)
     return total
 
 calculate(1, 2, 3, 4, 5, operand = "add") # 15
 calculate(100, 12, 13, 14, 5, operand = "subtract") # 56
 calculate(100, 12, 13, 14, 5, operand = "multiply") # 1092000
 calculate(1092000, 12, 13, 14, 5, operand = "divide") # 100
-calculate(100, 12, 13, 14, 5, operand = "minus") # Invalid Operand
+calculate(100, 12, 13, 14, 5, operand = "div") # Invalid Operand
