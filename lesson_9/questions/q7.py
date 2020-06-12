@@ -5,10 +5,10 @@
 import csv
 
 def tofile(**kwargs):
-    with open( "files/question7.csv", "a" ) as file:
-        for key, value in kwargs.items(): # have yo use .items() for this to work, passes key and value to those
-            csv.writer(file, key + ":" + value)
+    with open( "files/question7.csv", "a") as file:
+        writer = csv.DictWriter(file, kwargs.keys())
+        writer.writeheader() # use this line to create header which is the keys in each column
+        writer.writerow(kwargs)
 
-data = {"fname": "Alice", "lname": "Smith", "phone": "555-1234"}
 
-tofile(**data)
+tofile(fname = "Dan", lname = "Stacey", dob = "040280")
