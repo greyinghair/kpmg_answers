@@ -10,7 +10,7 @@ def tofile(writer, **kwargs): # writer variable triggers open of csv file in wri
 
 fields = ["fname", "lname", "dob"] # to add to top of CSV columns
 
-file = open( "files/question7.csv", "w")
+file = open( "files/question7.csv", "a")
 writer = csv.writer(file)
 
 # Add in field header
