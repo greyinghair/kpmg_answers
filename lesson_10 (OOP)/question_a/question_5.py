@@ -4,7 +4,6 @@
     # the print_word method prints the string in upper case.
 
 class Upper:
-    pass
 
     def get_word(self):
         self.word = input("What is your word? ")
@@ -13,4 +12,4 @@ class Upper:
     def print_word(self):
         print(self.word.upper()) # print whatever is passed from get_word in Uppercase
 
-Upper().get_word()
+Upper().get_word() # method within class.

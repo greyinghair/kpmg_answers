@@ -17,8 +17,7 @@ class Vehicle:
 class tesla(Vehicle):
 
     def __init__(self, colour, wheels, miles): # expected parameters to be passed (i.e. 3)
-        super().__init__(colour, miles)
-        self.wheels = wheels
+        super().__init__(colour, wheels)
         self.miles = miles
 
     def get_miles(self):
@@ -37,6 +36,8 @@ car.information() # call variable which references the child class which inherit
 print("\n")
 
 car.colour = "Blue" # change colour to BLUE
+car.wheels = 4 # change number of wheels
+car.miles = 99000 # change mile to 99K
 car.get_information() # get info from child (miles) and parent and verify now shows blue
 
 # del car.wheels # delete wheels attribute

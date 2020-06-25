@@ -2,11 +2,13 @@
 # Create a Person class, initialise it with a name.
 # Create a method for the Person class that will say hello to the name.
 
-class Person():
-    name = "Dan"
+class Person:
 
-    def name_func(self,name):
+    def __init__(self,name):
+        self.name = name
+
+    def hello_name(self):
         print("Hello " + self.name)
 
-
-print(Person.name)
+name = Person(input("What is your name?")) # set variable to user input
+name.hello_name() # pass variable above from

@@ -8,22 +8,22 @@
 # Use the round() function to get the answer to 2 decimal places
 
 class Circle:
+    pi = 3.142
 
     def __init__(self, radius):
-        pi = 3.142
-        self.area = pi * (radius ** 2) # area is Pi * (radius squared)
-        self.circum = pi * (self.area * 2)  # circum is Pi x Diameter (ie 2 x radius)
-
-    # def truncate(self):
-    #     round(self.area,2)
+        self.radius = radius
 
     def get_area(self):
-        print("\nArea is " + str(round(self.area, 2)))
+        self.area = round(self.pi * (self.radius ** 2),2)  # area is Pi * (radius squared)
+        return self.area # return the calc to the call
 
     def get_circumference(self):
-        print("Circumference is " + str(round(self.circum, 2)))
+        self.circum = round(self.pi * (self.radius * 2),2)  # circum is Pi x Diameter (ie 2 x radius)
+        return self.circum
 
 radius = Circle(12) # set the radius of 12
 
-radius.get_area() # should to the calc from the radius passed above and round 2 decimel places
-radius.get_circumference() # calls circumference METHOD which should print the answer
+print("The area is: " + str(radius.get_area())) # should to the calc from the radius passed above and round 2 decimal
+# places
+print("The circumference is: " + str(radius.get_circumference())) # calls circumference METHOD which should print the
+# answer,  keep the print out of the method, use method just to calc and return value
